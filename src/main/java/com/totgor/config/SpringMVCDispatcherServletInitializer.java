@@ -1,6 +1,7 @@
 package com.totgor.config;
 
 import org.jspecify.annotations.Nullable;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import jakarta.servlet.ServletContext;
@@ -37,5 +38,10 @@ public class SpringMVCDispatcherServletInitializer extends AbstractAnnotationCon
         System.out.println(" === Starting Spring MVC Application === ");
         super.onStartup(servletContext);
         System.out.println(" === Spring MVC Application started successfully === ");
+        registerHiddenFieldFilter(servletContext);
+    }
+
+    private void registerHiddenFieldFilter(ServletContext context) {
+        context.addFilter("hiddenHttpMethodFilter", new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }
