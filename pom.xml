@@ -104,6 +104,13 @@
       <version>42.7.8</version>
     </dependency>
 
+    <!-- Sping JDBC Template -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
